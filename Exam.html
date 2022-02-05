@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <script type="text/javascript">
+function deleteall(){
+ var tab= document.getElementsByTagName("tbody")[0].remove()
+//  var row=tab.getElementsByTagName("tr")
+//  for(var i=0;i< row.length;i++){
+// row[i].removeall()
+//  }
+
+}
+function deleteinrow(x){
+    x.parentNode.parentNode.remove()
+}
+function applyco(){debugger
+    var discount=parseInt(document.getElementById("txtdiscount").value)
+   var subtot=document.getElementById("subtotal").innerText
+  var amount=(discount/100)*parseInt(subtot)
+  var total=document.getElementById("total").innerText-=amount
+
+var mainbox=document.getElementById("SubTotals");
+var box=document.createElement("div")
+box.setAttribute("class","totals")
+mainbox.appendChild(box)
+span1=document.createElement("span")
+span1.innerText="Descount:"
+box.appendChild(span1)
+span2=document.createElement("span")
+span2.innerText=discount+"%"
+box.appendChild(span2)
+  
+ 
+}
+function editprice(x){debugger
+    var amount=parseInt(x.value) 
+var tab=x.parentNode.parentNode.parentNode
+var unitprice=tab.getElementsByClassName("ItemUnitPrice")[0].innerText
+var finprice=amount*parseInt(unitprice)
+var price=tab.getElementsByClassName("ItemSubTotal")[0].innerText=finprice
+
+}
+
+        </script>
+      
+    </head>
+    <body>
+<div class="maindiv">
+    <div class="shopping-cart">
+<table class="table-responsive table">
+    <thead>
+<tr>
+    <th class="text-align">
+        Product Name
+    </th>
+    <th class="text-align">
+        Quantity
+    </th>
+    <th class="text-align">
+        Unit Price
+    </th>
+    <th class="text-align">
+        Subtotal
+    </th>
+    <th>
+        <button  id="clearAll" class="btn btndanger" onclick="deleteall()" >Clear Cart</button>
+    </th>
+
+</tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000000.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">Unionbay Park</a></h4><span>Size: 10.5</span><span>Color: Dark Blue</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" value="1" onblur="editprice(this)" style="text-align: center;"  />
+                </div>
+            </td>
+            <td class="text-align ItemUnitPrice">
+                20
+            </td>
+            <td class="text-align ItemSubTotal">
+                20
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" onclick="deleteinrow(this)" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000002.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">	
+                            Cole Haan Crossbody</a></h4><span>Size: -</span><span>Color: Turquoise</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" value="1" onblur="editprice(this)"  style="text-align: center;" />
+                </div>
+            </td>
+            <td class="text-align ItemUnitPrice">
+                20
+            </td>
+            <td class="text-align ItemSubTotal">
+                20
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" onclick="deleteinrow(this)"  />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="product-item">
+                    <a class="product-thumb" href="#"><img src="000001.png" alt="Product"></a>
+                    <div class="product-info">
+                        <h4 class="product-title"><a href="#">	
+                            Daily Fabric Cap</a></h4><span>Size: XL</span><span>Color: Black</span>
+                    </div>
+                </div>
+            </td>
+            <td class="text-align">
+                <div class="count-input">
+                    <input type="text" class="FormCountrol" onblur="editprice(this)" value="2" style="text-align: center;" />
+                </div>
+            </td>
+            <td class="text-align ItemUnitPrice">
+                30
+            </td>
+            <td class="text-align ItemSubTotal">
+                60
+            </td>
+            <td class="text-align">
+                <img src="trash-fill.svg" class="trashIcon" onclick="deleteinrow(this)" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="shopping-cart-footer">
+    <div class="column">
+        <div style="margin-left: 20px;">
+        <input type="text" id="txtdiscount" class="FormCountrol" style="display: inline-block;width: 250px;" />
+        <input type="button" class="btn ButtonSubmit" id="ApplyCoupon" onclick="applyco()" value="Apply Coupon" style="display: inline-block;" />
+    </div>
+    </div>
+    <div class="column">
+        <div id="SubTotals">
+        <div class="totals">
+        <span>Subtotal: </span>
+        <span id="subtotal">100</span>
+    </div>
+   <!-- <div class="totals">
+        <span>Discount: </span>
+        <span>10%</span>
+    </div>-->
+    
+</div>
+    <div class="totals">
+        <h4>
+        <span>Amount: </span>
+        <span id="total">100</span>
+    </h4>
+    </div>
+    </div>
+
+</div>
+</div>
+    </body>
+</html>
